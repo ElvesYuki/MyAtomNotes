@@ -77,7 +77,7 @@ git reset --hard commit_id(此处填的是id)
 git pull origin master --allow-unrelated-histories
 ```
 
-##### 2、gitignore规则不生效
+##### 2、.gitignore规则不生效
 
 .gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。
 
