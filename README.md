@@ -8,3 +8,10 @@ test
 ~~~
 git pull origin master --allow-unrelated-histories
 ~~~
+
+IDEA连接数据库手动设置时区：
+
+```
+jdbc:mysql://localhost:3306/Database?serverTimezone=UTC&characterEncoding=utf-8
+```
+
