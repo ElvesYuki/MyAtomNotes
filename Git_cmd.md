@@ -20,7 +20,21 @@ git push origin master
 git push origin dev
 ```
 
+### 用户信息注册：
 
+```
+#初始化信息
+git config --global user.name "xxxx"
+git config --global user.email "xxx邮箱"
+#生成ssh
+ssh-keygen -t rsa -C "xxx邮箱"
+```
+
+### 关联远程仓库：
+
+```
+git clone xxx
+```
 
 ### 分支操作
 
@@ -89,3 +103,8 @@ git add .
 git commit -m "update .gitignore"
 ```
 
+##### 3.如果push的时候遇到在输入密码错误后，就会报这个错误fatal: Authentication failed for
+
+git config --system --unset credential.helper
+
+之后你在push/pull就会提示输入名称和密码此时重新输入正确的用户名和密码即可

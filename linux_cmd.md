@@ -280,15 +280,15 @@ vi /etc/sysconfig/iptables
 步骤二：增加或修改如下内容
 server(服务器)上增加代理
 
-upstream tomcat{server localhost:8080;} #为谁代理服务
+upstream tomcat{server 39.105.45.130:8604;} 
 server {
-　　　　listen 80;
-　　　　server_name localhost;
+　　　　listen 5288;
+　　　　server_name daodao-export;
 　　　　location / {
            # root   html;
            # index  index.html index.htm;
            
-           proxy_pass http://tomcat; # 访问tomcat
+           proxy_pass http://; 
         }
 }
 步骤三：重启nginx
@@ -313,8 +313,10 @@ permanent
 firewall-cmd --zone=public --add-port=4400-4600/udp --permanent 
 firewall-cmd --zone=public --add-port=4400-4600/tcp --permanent
 firewall-cmd --zone=public --add-port=8600-8700/tcp --permanent
+firewall-cmd --zone=public --add-port=5288/tcp --permanent
 **查看某个端口是否开放**
-firewall-cmd --zone=public --query-port=22/tcp firewall-cmd --query-port=8080/tcp
+firewall-cmd --zone=public --query-port=22/tcp 
+firewall-cmd --query-port=8080/tcp
 **查看端口列表**：
 firewall-cmd --permanent --list-port
 **开启防火墙命令**：
@@ -518,3 +520,4 @@ iptabls配置文件：允许某个端口访问
 修改配置文件：vi /etc/sysconfig/iptables  复制指定端口
 ps:iptables是iptable防火墙的配置文件 所以必须得安装iptable防火墙才有该配置文件
 ```
+
