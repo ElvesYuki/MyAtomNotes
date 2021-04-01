@@ -19,13 +19,18 @@ docker pull minio/minio
 运行容器
 
 ```
-docker run -di --name myMinio -p 8660:9000 -e "MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE" -e "MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY" -v /data/minio/data:/data:z -v /data/minio/config:/root/.minio:z minio/minio server /data
+（弃用）docker run -di --name myMinio -p 8660:9000 -e "MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE" -e "MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY" -v /data/minio/data:/data:z -v /data/minio/config:/root/.minio:z minio/minio server /data
 ```
 
 ```
 docker run -di --name vianLocalMinio -p 9000:9000 -e "MINIO_ACCESS_KEY=VIANGZ" -e "VIANGZ" -v /data/minio/data:/data:z -v /data/minio/config:/root/.minio:z minio/minio server /data
+```
 
 ```
+docker run -di --name myMinio -p 8660:9000 --restart=always -e "MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE" -e "MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY" -v /data/minio/data:/data minio/minio server /data
+```
+
+(/data目录下已经有隐藏德配置文件，只需要映射/data目录即可)
 
 1，进入容器 
 
